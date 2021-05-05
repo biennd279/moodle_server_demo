@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'api',
+        'passwords' => 'accounts',
     ],
 
     /*
@@ -36,16 +36,18 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
+
+        'api' => [
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
+        'users' => [
+            'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,
         ],
+        //TODO: Student, Teacher, Admin only
     ],
 
     /*
@@ -68,8 +70,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Account::class,
         ],
+
+        //TODO: Same with Student, Teacher, Admin
+
 
         // 'users' => [
         //     'driver' => 'database',
@@ -94,7 +99,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'accounts',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
