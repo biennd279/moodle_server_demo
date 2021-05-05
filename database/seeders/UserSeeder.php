@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class AccountSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,12 +15,12 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
-        $account = new Account([
+        $account = new User([
             "user_name" => "biennd3",
             "email" => "bien@mail.com",
             "password" => Hash::make("password"),
         ]);
         $account->save();
-        Account::factory(10)->create();
+        User::factory(10)->create();
     }
 }
