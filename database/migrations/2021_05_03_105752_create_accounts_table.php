@@ -18,6 +18,7 @@ class CreateAccountsTable extends Migration
             $table->string("user_name")->unique();
             $table->string("email")->unique();
             $table->string("password");
+            $table->morphs("userable");
             $table->timestamps();
         });
     }
