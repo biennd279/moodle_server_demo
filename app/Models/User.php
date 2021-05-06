@@ -16,7 +16,7 @@ use Illuminate\Support\Carbon;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
- * App\Models\User
+ * App\Models\UserResource
  *
  * @property int $id
  * @property string $user_name

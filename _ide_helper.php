@@ -1869,7 +1869,7 @@
                         return $instance->invalidate($forceForever);
         }
                     /**
-         * Create a new token by User id.
+         * Create a new token by UserResource id.
          *
          * @param mixed $id
          * @return string|null 
@@ -1893,7 +1893,7 @@
                         return $instance->once($credentials);
         }
                     /**
-         * Log the given User into the application.
+         * Log the given UserResource into the application.
          *
          * @param mixed $id
          * @return bool 
@@ -7334,7 +7334,7 @@
                     /**
          * Interesting events.
          * 
-         * Example: User logs in, SQL logs.
+         * Example: UserResource logs in, SQL logs.
          *
          * @param string $message
          * @param array $context

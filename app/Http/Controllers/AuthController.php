@@ -41,7 +41,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the authenticated User.
+     * Get the authenticated UserResource.
      *
      * @return JsonResponse
      */
