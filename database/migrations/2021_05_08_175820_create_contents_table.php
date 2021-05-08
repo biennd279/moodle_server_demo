@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateContentsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('contents', function (Blueprint $table) {
+            $table->id();
+            $table->string("title")->nullable();
+            $table->longText("content")->nullable();
+            $table->string("url_attachment")->nullable();
+            $table->boolean("is_hidden")->default(false);
+            $table->foreignId("course_id")
+                ->constrained();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('contents');
+    }
+}
