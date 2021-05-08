@@ -35,6 +35,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|AdminProfile whereProfilePictureUrl($value)
  * @method static Builder|AdminProfile whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property string|null $staff_position
+ * @method static Builder|AdminProfile whereStaffPosition($value)
  */
 class AdminProfile extends Profile
 {

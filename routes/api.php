@@ -29,3 +29,13 @@ Route::group([
     Route::post('me', 'App\Http\Controllers\AuthController@me');
 
 });
+
+Route::apiResources([
+    "users" => \App\Http\Controllers\UserController::class,
+    "courses" => \App\Http\Controllers\CourseController::class,
+]);
+
+Route::get(
+    "courses/{course}/teacher",
+    "\App\Http\Controllers\CourseController@teacher",
+);

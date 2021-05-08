@@ -44,7 +44,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         return \response()->json([
-            "data" => "",
+            "message" => "",
         ], 405);
     }
 
@@ -57,7 +57,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         return \response()->json([
-            "data" => UserResource::make($user)
+            UserResource::make($user)
         ]);
     }
 
@@ -68,7 +68,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user): \Illuminate\Http\JsonResponse
     {
         $user_attributes = $request->only(["user_name", "email", "password"]);
 
@@ -84,7 +84,7 @@ class UserController extends Controller
 
         $this->userRepository->update($user->id, $user_attributes);
         return \response()->json([
-            "data" => UserResource::make($this->userRepository->find($user->id))
+            UserResource::make($this->userRepository->find($user->id))
         ], 201);
     }
 
@@ -97,7 +97,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         return \response()->json([
-            "data" => ""
+            "message" => ""
         ], 405);
     }
 }

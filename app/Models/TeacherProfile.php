@@ -35,10 +35,20 @@ use Illuminate\Support\Carbon;
  * @method static Builder|TeacherProfile whereProfilePictureUrl($value)
  * @method static Builder|TeacherProfile whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Course[] $courses
+ * @property-read int|null $courses_count
  */
 class TeacherProfile extends Profile
 {
     use HasFactory;
 
     protected $fillable = ["profile_picture_url", "first_name", "last_name", "date_of_birth", "address", "phone",];
+
+    public function courses(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(
+            Course::class,
+            'teacher_id'
+        );
+    }
 }
