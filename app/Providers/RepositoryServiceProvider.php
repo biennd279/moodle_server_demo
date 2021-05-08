@@ -3,6 +3,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\ContentRepository;
+use App\Repositories\ContentRepositoryInterface;
 use App\Repositories\CourseRepository;
 use App\Repositories\CourseRepositoryInterface;
 use App\Repositories\RepositoryInterface;
@@ -22,6 +24,11 @@ class RepositoryServiceProvider extends ServiceProvider
        $this->app->singleton(
            CourseRepositoryInterface::class,
            CourseRepository::class,
+       );
+
+       $this->app->singleton(
+           ContentRepositoryInterface::class,
+           ContentRepository::class
        );
     }
 }

@@ -33,6 +33,7 @@ Route::group([
 Route::apiResources([
     "users" => \App\Http\Controllers\UserController::class,
     "courses" => \App\Http\Controllers\CourseController::class,
+    "courses.contents" => \App\Http\Controllers\ContentController::class,
 ]);
 
 Route::get(
